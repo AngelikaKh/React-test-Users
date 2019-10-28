@@ -1,12 +1,17 @@
 import React from 'react';
-import './App.css';
 import List from './components/List';
+import Detail from './components/Detail';
+import { Route, Switch } from 'react-router-dom';
+import './App.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-        <List />
-    </div>
+      <div>
+          <Switch>
+              <Route exact path='/'  component={List} />
+              <Route path='/users/:id' component={Detail} />
+          </Switch>
+      </div>
   );
 }
 

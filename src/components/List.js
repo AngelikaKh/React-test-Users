@@ -1,6 +1,7 @@
 import React from 'react';
-import { API_URL } from '../config';
 import Table from './Table';
+import { API_URL } from '../config';
+import { handleResponse } from '../helpers';
 
 class List extends React.Component {
     constructor() {
@@ -17,12 +18,9 @@ class List extends React.Component {
     }
 
     fetchUsers() {
-        fetch(`${API_URL}/users`)
-        .then((response) => {
-            return response.json().then(data => {
-                return response.ok ? data : Promise.reject(data);
-            });
-        })
+        fetch(`${API_URL}/users?page=${this.state}`)
+
+        .then( handleResponse )
 
         .then((result) => {
             this.setState({
@@ -43,8 +41,6 @@ class List extends React.Component {
             </div>
         );
     }
-
 };
-
 
 export default List;

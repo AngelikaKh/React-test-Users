@@ -1,5 +1,5 @@
 import React from 'react';
-//import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import "./List.css";
 
 const Table = (props) => {
@@ -25,9 +25,11 @@ const Table = (props) => {
                                         <span>{user.name}</span>
                                     </a>
                                 </td>
+
                                 <td>
                                     <span>{user.email}</span>
                                 </td>
+
                                 <td>
                                     <span>{`${user.address.city}, ${user.address.street}`}</span>
                                 </td>
@@ -41,4 +43,4 @@ const Table = (props) => {
     );
 }
 
-export default Table;
+export default withRouter (Table);
